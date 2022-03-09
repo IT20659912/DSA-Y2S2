@@ -1,0 +1,50 @@
+package L1;
+
+public class Stack1 {
+	private char []stkarry;
+	private int max;
+	private int top;
+	
+	public Stack1(int m) {
+		max = m;
+		stkarry = new char[max];
+		top = -1;
+	}
+	public void Push(char c) {
+		//top++;
+		stkarry[++top] = c;
+	}
+	public char pop() {
+		return (stkarry[top--]);
+	}
+	public char peek() {
+		return (stkarry[top]);
+	}
+	public boolean isFull() {
+		return (top == max-1);
+	}
+	public boolean isEmpty() {
+		return (top == -1);
+	}
+}
+
+package L1;
+
+public class Stack {
+
+	public static void main(String[] args) {
+		Stack1 s = new Stack1(10);
+		s.Push('a');
+		s.Push('b');
+		s.Push('c');
+		s.Push('d');
+		
+		while (!s.isEmpty()) {
+			System.out.println(s.pop());
+		}
+		
+
+	}
+
+}
+
