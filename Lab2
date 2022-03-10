@@ -1,0 +1,65 @@
+package L2;
+
+public class Queue {
+	private int []qArry;
+	private int max;
+	private int front;
+	private int rear;
+	private int n;
+	
+	public Queue(int s) {
+		max = s;
+		qArry = new int [max];
+		front = 0;
+		rear = -1;
+		n = 0;
+	}
+	public void insert(int x) {
+		if (isFull())
+			System.out.println("Queue is full");
+		qArry[++rear] = x;
+		n++;
+	}
+	public int remove() {
+		if (isEmpty()) {
+			System.out.println("Queue is empty");
+			return -99;
+		}
+		n--;
+		return qArry[front++];
+	}
+	public int peekFront() {
+		return qArry[front];
+	}
+	public boolean isFull() {
+		return (rear == max-1);
+	}
+	public boolean isEmpty() {
+		return (n==0);
+	}
+}
+
+package L2;
+
+public class QApp {
+
+	public static void main(String[] args) {
+		Queue q = new Queue(10);
+		q.insert(0);
+		q.insert(34);
+		q.insert(67);
+		q.insert(12);
+		q.insert(3);
+		q.insert(8);
+		
+		while(!q.isEmpty()) {
+			System.out.println(q.remove());
+			
+		}
+		
+
+	}
+
+}
+
+
